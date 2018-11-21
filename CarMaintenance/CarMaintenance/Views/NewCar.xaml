@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarMaintenance.NewCar">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="cancel.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="200" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Year:" Grid.Row="0"/>
+            <Label Text="Make:" Grid.Row="1"/>
+            <Label Text="Model:" Grid.Row="2"/>
+
+            <Entry x:Name="YearEditor" Placeholder="Enter year here" PlaceholderColor="Olive" Grid.Row="0" Grid.Column="1" Completed="YearEditorCompleted"/>
+            <Entry Placeholder="Enter make here" PlaceholderColor="Olive" Grid.Row="1" Grid.Column="1" Completed="MakeEditorCompleted"/>
+            <Entry Placeholder="Enter model here" PlaceholderColor="Olive" Grid.Row="2" Grid.Column="1" Completed="ModelEditorCompleted"/>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>
