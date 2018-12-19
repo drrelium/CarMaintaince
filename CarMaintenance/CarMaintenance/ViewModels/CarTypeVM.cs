@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Collections.ObjectModel;
+using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace CarMaintenance
 {
@@ -9,22 +11,47 @@ namespace CarMaintenance
     class CarTypeVM : BaseViewModel
     {
         public ObservableCollection<CarType> Cars { get; set; }
-        public CarType CurrentCar;
+ //       public Command SaveCommand { get; set; }
+   //     public Command CancelCommand { get; set; }
+  //      CarType defaultCar;
 
         public CarTypeVM()
         {
             Cars = new ObservableCollection<CarType>();
 
-            CarType defaultCar = new CarType();
-            defaultCar.Make = "Please add a car";
-            Cars.Add(defaultCar);
-            CurrentCar = defaultCar;
-        }
+            CarType testCar = new CarType
+            {
+                Year = "2003",
+                Make = "Honda",
+                Model = "CRV"
+            };
+            Cars.Add(testCar);
 
-        public string CarLabel(CarType car)
-        {
-            return string.Format("{0} {1} {2}", car.Year, car.Make, car.Model);
-        }
+            MessagingCenter.Subscribe<NewCar, CarType>(this, "AddCar", (sender, arg) =>
+            {
+                Cars.Add(arg);
+            });
 
+/*
+            SaveCommand = new Command(
+                execute: () =>
+                {
+                    Debug.WriteLine("Adding car.");
+
+                    Cars.Add(defaultCar);
+
+                },
+                canExecute: () =>
+                {
+                    Debug.WriteLine("Checking car input");
+
+                    return defaultCar != null &&
+                            defaultCar.Year < 1000 &&
+                            defaultCar.Year >= currentYear &&
+                            defaultCar.Make != null &&
+                            defaultCar.Model != null;
+                }
+            ); */
+        }
     }
 }

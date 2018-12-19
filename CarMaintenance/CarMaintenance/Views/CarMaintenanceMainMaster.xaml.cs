@@ -37,7 +37,6 @@ namespace CarMaintenance
                     new CarMaintenanceMainMenuItem { Id = 1, Title = "Maintenance History", TargetType = typeof(CarHistory) },
                     new CarMaintenanceMainMenuItem { Id = 2, Title = "Gas History" },
                     new CarMaintenanceMainMenuItem { Id = 3, Title = "Export to Excel" },
-           //         new CarMaintenanceMainMenuItem { Id = 4, Title = "Page 5" },
                 });
             }
             

@@ -18,15 +18,14 @@
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
-
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <Grid>
+        <Grid >
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="200" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -37,9 +36,10 @@
             <Label Text="Make:" Grid.Row="1"/>
             <Label Text="Model:" Grid.Row="2"/>
 
-            <Entry x:Name="YearEditor" Placeholder="Enter year here" PlaceholderColor="Olive" Grid.Row="0" Grid.Column="1" Completed="YearEditorCompleted"/>
-            <Entry Placeholder="Enter make here" PlaceholderColor="Olive" Grid.Row="1" Grid.Column="1" Completed="MakeEditorCompleted"/>
-            <Entry Placeholder="Enter model here" PlaceholderColor="Olive" Grid.Row="2" Grid.Column="1" Completed="ModelEditorCompleted"/>
+            <Picker x:Name="YearPicker" Title="Select year" Grid.Row="0" Grid.Column="1" />
+            <Entry x:Name="EntryMake"  Text="{Binding defaultCar.Make, Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+            <Entry x:Name="EntryModel"  Text="{Binding defaultCar.Model, Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+
         </Grid>
         
     </ContentPage.Content>

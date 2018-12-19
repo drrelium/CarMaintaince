@@ -14,18 +14,18 @@ namespace CarMaintenance
 	public partial class CarTypeView : ContentPage
 	{
         CarTypeVM carTypeModel;
+   //     public CarType Cars { get; set; }
 
-		public CarTypeView ()
-		{
-			InitializeComponent ();
+        public CarTypeView()
+        {
+            InitializeComponent();
             BindingContext = carTypeModel = new CarTypeVM();
-
         }
 
-        public void AddItem_Clicked(object sender, EventArgs args)
+        public void AddItem_Clicked(object sender, SelectedItemChangedEventArgs e)
         {
             Debug.WriteLine("Add button clicked");
+            Navigation.PushAsync(new NewCar());
         }
-
     }
 }

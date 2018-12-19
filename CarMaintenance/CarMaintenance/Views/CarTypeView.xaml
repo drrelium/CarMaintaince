@@ -17,13 +17,17 @@
     <StackLayout>
         <Label Text="Current car is:"/>
         <Label Text="{Binding CarLabel}"/>
+        <Label Text="Change car to:"/>
+
         <ListView x:Name="CarTypeListView"
             ItemsSource="{Binding Cars}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="Change car to:"/>
+                        <StackLayout Padding="10" Orientation="Horizontal">
+                            <Label Text="{Binding Year} "/>
+                            <Label Text="{Binding Make} "/>
+                            <Label Text="{Binding Model}"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
